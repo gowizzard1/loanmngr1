@@ -1,0 +1,373 @@
+/* Home scss */
+/* line 4, ../sass/modules/_home.scss */
+.home .section-title {
+  font-size: 18px;
+  color: #134f84 !important;
+  margin: 0px 0 20px;
+  font-weight: 600;
+}
+/* line 10, ../sass/modules/_home.scss */
+.home .standing-loans {
+  width: 200%;
+  white-space: nowrap;
+}
+/* line 13, ../sass/modules/_home.scss */
+.home .standing-loans thead {
+  background-color: #134f84;
+  border: solid 1px #134f84;
+}
+/* line 17, ../sass/modules/_home.scss */
+.home .standing-loans th, .home .standing-loans td {
+  padding: 10px 22px;
+  font-size: 13px;
+}
+/* line 21, ../sass/modules/_home.scss */
+.home .standing-loans th {
+  color: #fff;
+  font-weight: 600;
+}
+/* line 25, ../sass/modules/_home.scss */
+.home .standing-loans td {
+  color: #1d1d1d;
+  font-weight: 400;
+}
+/* line 29, ../sass/modules/_home.scss */
+.home .standing-loans tbody {
+  background-color: #f1f8ff;
+}
+/* line 31, ../sass/modules/_home.scss */
+.home .standing-loans tbody tr {
+  border: solid 1px #dddddd;
+}
+
+/* line 7, ../sass/main.scss */
+.pre-head {
+  color: #fff;
+  font-size: 32px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  text-align: center;
+  margin: 10px 20px 0px;
+  line-height: 1em;
+}
+
+/* line 16, ../sass/main.scss */
+.pre-head span {
+  color: #30c5bd;
+}
+
+/* line 19, ../sass/main.scss */
+.pre-head2 {
+  color: #f1f1f1;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 5px;
+}
+
+/* line 27, ../sass/main.scss */
+.login-page {
+  background-image: url("../images/writing-sationary_4460x44_opt.jpg");
+  background-color: #000000;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+/* line 35, ../sass/main.scss */
+.login-form {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 80px;
+}
+/* line 40, ../sass/main.scss */
+.login-form .page-header {
+  margin-bottom: 15px;
+  font-size: 48px;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+@media (max-width: 500px) {
+  /* line 40, ../sass/main.scss */
+  .login-form .page-header {
+    font-size: 32px;
+  }
+}
+/* line 48, ../sass/main.scss */
+.login-form .page-header span {
+  font-family: "Arial Black", Gadget, sans-serif;
+  background-color: #3f939e;
+  border-radius: 5px;
+  padding: 0 20px 0 10px;
+  letter-spacing: -10px;
+  vertical-align: unset;
+  margin-bottom: 0;
+}
+/* line 58, ../sass/main.scss */
+.login-form .form-sub {
+  color: #ffff !important;
+  font-size: 20px !important;
+  margin: 0 !important;
+  opacity: 1 !important;
+}
+
+/* line 66, ../sass/main.scss */
+.login-form .form-sub, .user-form .form-sub {
+  color: #444444;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  opacity: 0.6;
+}
+/* line 72, ../sass/main.scss */
+.login-form .email, .login-form .password, .login-form .username, .user-form .email, .user-form .password, .user-form .username {
+  height: 45px;
+  border: solid 1px #3f939e;
+  margin: 15px 0;
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding-left: 50px;
+}
+/* line 80, ../sass/main.scss */
+.login-form .email, .user-form .email {
+  background-image: url("../images/icon-envelope.jpg");
+}
+/* line 83, ../sass/main.scss */
+.login-form .username, .user-form .username {
+  background-image: url("../images/icon-user.jpg");
+}
+/* line 86, ../sass/main.scss */
+.login-form .password, .user-form .password {
+  background-image: url("../images/icon-lock.jpg");
+}
+/* line 89, ../sass/main.scss */
+.login-form .submit, .user-form .submit {
+  background-color: #3f939e;
+  border: solid 1px #3f939e;
+  width: 100%;
+  height: 50px;
+  border-radius: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+/* line 99, ../sass/main.scss */
+.login-form .submit:hover, .login-form .submit:focus, .user-form .submit:hover, .user-form .submit:focus {
+  opacity: 0.8;
+}
+/* line 103, ../sass/main.scss */
+.login-form .btn-cyan, .login-form .btn-normal, .user-form .btn-cyan, .user-form .btn-normal {
+  border: solid 1px #3f939e;
+}
+/* line 105, ../sass/main.scss */
+.login-form .btn-cyan:hover, .login-form .btn-normal:hover, .user-form .btn-cyan:hover, .user-form .btn-normal:hover {
+  opacity: 0.8;
+}
+/* line 109, ../sass/main.scss */
+.login-form .btn-cyan, .user-form .btn-cyan {
+  background-color: #3f939e;
+  color: #fff;
+}
+/* line 113, ../sass/main.scss */
+.login-form .btn-normal, .user-form .btn-normal {
+  background-color: #fff;
+  color: #3f939e;
+}
+
+/* line 118, ../sass/main.scss */
+.page-header {
+  color: #3f939e;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 68px;
+  margin-bottom: 30px;
+}
+
+/* line 124, ../sass/main.scss */
+.section-title {
+  color: #3f939e;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 22px;
+}
+
+/* line 129, ../sass/main.scss */
+.myTable {
+  border: dashed 1px #3f939e;
+  margin-top: 15px;
+}
+/* line 134, ../sass/main.scss */
+.myTable thead tr th {
+  font-size: 16px;
+  color: #fff;
+  text-transform: uppercase;
+  background-color: #3f939e;
+  border-bottom: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+/* line 144, ../sass/main.scss */
+.myTable tbody tr td {
+  border-top: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+/* line 152, ../sass/main.scss */
+.myTable.client-info-tbl td:nth-child(1), .myTable.client-new-loan td:nth-child(1), .myTable.loan-info-tbl td:nth-child(1) {
+  font-weight: 600;
+}
+/* line 159, ../sass/main.scss */
+.myTable.client-trans-tbl td:nth-child(4), .myTable.client-trans-tbl th:nth-child(4) {
+  text-align: right;
+}
+/* line 164, ../sass/main.scss */
+.myTable.client-trans-tbl tr:last-child td {
+  font-weight: 600;
+  border-top: dashed 1px #3f939e;
+}
+
+/* line 171, ../sass/main.scss */
+.menu-bar {
+  background-color: #3f939e;
+  border: none;
+  border-radius: 0;
+}
+/* line 177, ../sass/main.scss */
+.menu-bar .menu-group .menu-list a {
+  color: #fff;
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  opacity: 0.7;
+  text-transform: capitalize;
+}
+/* line 183, ../sass/main.scss */
+.menu-bar .menu-group .menu-list a:hover, .menu-bar .menu-group .menu-list a:focus {
+  color: #fff;
+  opacity: 0.9;
+}
+/* line 188, ../sass/main.scss */
+.menu-bar .menu-group .menu-list.active a {
+  opacity: 1;
+  background-color: transparent;
+}
+/* line 197, ../sass/main.scss */
+.menu-bar .navbar-header .navbar-brand {
+  color: #fff;
+}
+/* line 200, ../sass/main.scss */
+.menu-bar .navbar-header .icon-bar {
+  background-color: #fff;
+}
+
+/* line 205, ../sass/main.scss */
+#navbar {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* line 209, ../sass/main.scss */
+.breadcrumb {
+  text-transform: capitalize;
+}
+
+/* line 214, ../sass/main.scss */
+.client-loans-table {
+  width: 500px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  padding: 10px;
+}
+/* line 219, ../sass/main.scss */
+.client-loans-table td {
+  padding: 1px 10px;
+  font-size: 14px;
+}
+/* line 222, ../sass/main.scss */
+.client-loans-table td:nth-child(1), .client-loans-table td:nth-child(4) {
+  width: 120px;
+}
+/* line 225, ../sass/main.scss */
+.client-loans-table td:nth-child(2), .client-loans-table td:nth-child(3) {
+  width: 100px;
+}
+
+/* line 233, ../sass/main.scss */
+.row-line {
+  height: 1px;
+  background-color: #ccc;
+}
+
+/* line 237, ../sass/main.scss */
+.row-gap {
+  height: 10px;
+  background-color: #f9f9f9;
+}
+
+/* line 241, ../sass/main.scss */
+.subtbl-end {
+  height: 30px;
+  background-color: #fff;
+}
+
+/* line 246, ../sass/main.scss */
+.transaction-th {
+  padding-top: 10px !important;
+}
+
+/* line 269, ../sass/main.scss */
+.total-payment-label, .balance-label, .loan-value-label, .transaction-th-date, .transaction-th-interest, .transaction-th-amount, .transaction-th-description {
+  font-weight: 600;
+}
+
+/* line 272, ../sass/main.scss */
+.total-payment-data, .interest-data, .balance-data, .loan-value-data, .transaction-th-interest, .transaction-th-amount, .transaction-td-amount {
+  text-align: right;
+}
+
+/* line 281, ../sass/main.scss */
+.transaction-no-label {
+  padding-top: 20px !important;
+  font-weight: 600;
+}
+
+/* line 285, ../sass/main.scss */
+.transaction-no-data {
+  padding-top: 20px !important;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* line 294, ../sass/main.scss */
+.amount-label {
+  padding-top: 20px !important;
+  text-align: right;
+}
+
+/* line 298, ../sass/main.scss */
+.amount-data {
+  padding-top: 20px !important;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* line 303, ../sass/main.scss */
+.status-label {
+  text-align: right;
+}
+
+/* line 306, ../sass/main.scss */
+.status-data {
+  text-transform: uppercase;
+}
+
+/* line 311, ../sass/main.scss */
+.interest-data {
+  font-weight: 600;
+}
+
+/* line 314, ../sass/main.scss */
+.total-payment-data {
+  font-weight: 600;
+}

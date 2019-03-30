@@ -1,0 +1,36 @@
+/* Home scss */
+
+.home {
+    .section-title {
+        font-size: 18px;
+        color: #134f84 !important ;
+        margin: 0px 0 20px;
+        font-weight: 600;
+    }
+    .standing-loans {
+        width: 100%;
+        white-space: nowrap;
+        thead {
+            background-color: #134f84;
+            border: solid 1px #134f84;
+        }
+        th, td {
+            padding: 10px 22px;
+            font-size: 13px;
+        }
+        th {
+            color: #fff;
+            font-weight: 600;
+        }
+        td {
+            color: #1d1d1d;
+            font-weight: 400;
+        }
+        tbody {
+            background-color: #f1f8ff;
+            tr {
+                border: solid 1px #dddddd;
+            }
+        }
+    }
+}
