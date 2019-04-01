@@ -22,6 +22,7 @@ class Home extends CI_Controller {
         $data['standing_loans'] = $this->Client_model->get_unpaid()->result();
          $data['officer']=$this->Client_model->fetchDesignationsOff()->result();
          $des=$this->Client_model->fetchDesignations()->result();
+         $data['access']=$this->User_model->getLevels()->result();
         $data['designation']=$des;
         $this->load->view('header');
         $this->load->view('generic-page', $data);

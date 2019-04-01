@@ -28,6 +28,9 @@
             <ul class="nav navbar-nav navbar-centre menu-group">
                  <li class="menu-list"><a href="<?php echo site_url('/reports'); ?>">Reports</a></li>
             </ul>
+            <ul class="nav navbar-nav navbar-centre menu-group">
+                 <li class="menu-list"><a href="<?php echo site_url('/salary'); ?>">Payroll</a></li>
+            </ul>
             <ul class="nav navbar-nav navbar-right menu-group">
                 <li class="menu-list"><a href="<?php echo site_url('users/logout'); ?>">Logout</a></li>
             </ul>
@@ -100,4 +103,9 @@
         </div>
     </div>
 </div>
+<style type="text/css">
+    .col-md-8 {
+    width: 100%;
+}
+</style>
 

@@ -47,7 +47,10 @@ class User_model extends CI_Model {
 		$query = $this->db->insert('accounts', $data);
 		return $this->db->affected_rows();
 	}
-
+   function getLevels(){
+   	$query=$this->db->get('accounts');
+   	return $query;
+   }
 	/* update user */
 	public function update_user($username, $email, $password, $id) {
 		echo $username."<br>";

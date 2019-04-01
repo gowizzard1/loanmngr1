@@ -1,0 +1,65 @@
+.customer-dashboard{
+/* background: -webkit-linear-gradient(left, #3931af, #00c6ff); */
+background-color: #e8edf1;
+border-radius: 2px;
+}
+
+.customer-dashboard .info{
+padding-top: 2%;
+padding-left: 1%;
+text-decoration-style: dotted;
+}
+
+.customer-dashboard ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+overflow: hidden;
+background-color: #5a8fc4;
+border-radius: 5px;
+}
+
+.customer-dashboard li {
+float: left;
+}
+
+.info-ul li a {
+display: block;
+color: white;
+text-align: center;
+padding: 8px;
+text-decoration: none;
+}
+
+.info-ul li a:focus{
+background-color: #192d47;
+}
+
+.logs-ul li a {
+display: block;
+color: white;
+text-align: center;
+padding:8px;
+text-decoration: none;
+font-size: 12px;
+}
+
+.logs-ul li a:focus{
+background-color: #192d47;
+}
+
+.customer-dashboard .logs{
+padding: 1%;
+padding-left: 4%;
+padding-right: 15%;
+}
+
+.customer-dashboard .log-content{
+padding-top: 1%;
+}
+
+.customer-dashboard .table{
+font-size: 12px;
+border-radius: 5px;
+background-color: white;
+}

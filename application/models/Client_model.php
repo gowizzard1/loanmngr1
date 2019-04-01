@@ -34,6 +34,23 @@ class Client_model extends CI_Model {
 			return $query;
 			//$this->db->where('identification',$id);
 	}
+	function getPaymentsReports($to,$from){
+        
+		//$from=date('Y-m-d h:m:s',strtotime("-1 days"));
+  //          $to=date('Y-m-d h:m:s ');
+          //echo $from;
+          
+			
+			$this->db->where('date_created >=',$from);
+			//$this->db->where('date_created <=',$to);
+           $result = $this->db->get('tbl_payments');
+			//$query=$this->db->query("SELECT * FROM tbl_payments WHERE date_created BETWEEN $from AND $to ");
+			return $result;
+	}
+	 function getPaymentsReps(){
+  $sp=$this->Client_model->getPaymentsReports()->result();
+  var_dump($sp);
+}
 	function fetchAllDesig(){
 		 //$this->db->where('designation','agent');
 		$query = $this->db->get('employees');
@@ -135,7 +152,7 @@ class Client_model extends CI_Model {
   	 $query=$this->db->query("INSERT INTO `employees` (`id`, `name`, `identification`, `designation`, `salary`, `commission`, `status`) VALUES (NULL, '$name', '$id', '$desig', '$salo', '$comm', '1')");
   }
   function registerUser($data){
- 		var_dump ($data);
+ 		//var_dump ($data);
  		$username=$data['username'];
  		$password=$data['password'];
  		$email=$data['email'];
@@ -149,14 +166,39 @@ class Client_model extends CI_Model {
     
  	$query=$this->db->query("UPDATE `loan` SET `total_loan`='$amount' WHERE `identification`='$id'");
  }
- function addPayment($id,$amount){
- 	$query=$this->db->query("INSERT INTO `tbl_payments` (`id`,  `identification`, `amount`, `date_created`) VALUES (NULL, '$id', '$amount', CURRENT_TIMESTAMP)");
+ function addPayment($id,$amount,$name,$interest,$agent){
+ 	$query=$this->db->query("INSERT INTO `tbl_payments` (`id`, `name`,`agent`, `identification`, `amount`, `interest`,`date_created`) VALUES (NULL,'$name','$agent', '$id', '$amount','$interest', CURRENT_TIMESTAMP)");
  }
   function completePayment($amount,$id){
      
  	$query=$this->db->query("UPDATE `loan` SET `total_loan`='$amount',`status`='paid' WHERE `identification`='$id'");
  }
-
+ function getLoanParams($id){
+ 	$this->db->where('identification',$id);
+ 	$this->db->where('status','Unpaid');
+ 	$query = $this->db->get('loan');
+			$result = $query->result_array();
+		return $result;
+ }
+ //    function officerSaloo($from,$to){
+ //    	$this->db->where('date_created >=',$from);
+ //    $this->db->where('designation','officer');
+ 	
+ // 	$query = $this->db->get('employees');
+	// //$result = $query->result_array();
+	// 	return $query;
+ //    }
+ function officerSaloo($from,$to){
+ 	$query=$this->db->query("SELECT * FROM employees WHERE designation='officer' AND date_created BETWEEN '$from' AND '$to'");
+ 	return $query;
+ }
+    function salesPerAgent($from,$to){
+      //$this->db->where('date_created >=',$from);
+    	echo $from;
+		$query =  $this->db->query("SELECT agent, identification, SUM(interest) as value_sum FROM tbl_payments WHERE date_created BETWEEN  '$from' AND '$to' GROUP BY name ");
+		
+		return $query;
+    }
 	public function get_transactions($client_id) {
 		$this->db->group_by('group_code');
 		$this->db->order_by('date', 'ASC');
@@ -172,6 +214,7 @@ class Client_model extends CI_Model {
 	}
 	function getLoanAmount($id)
 	{
+
 		$this->db->where('identification',$id);
 		return $this->db->get('loan');
 	}
@@ -206,15 +249,8 @@ class Client_model extends CI_Model {
 	public function get_unpaid() {
 		$this->db->where('status','Unpaid');
 		 return $this->db->get('loan');
-		// $this->db->select('c.firstname, c.lastname, l.amount, l.date_due, l.id, l.identification');
-		// $this->db->from('customers c, loan l');
-		// $this->db->where('l.status', 'Unpaid');
-		// $this->db->where('c.identification = l.iidentification');
-		// //$this->db->order_by('date', 'ASC');
-		// $query = $this->db->get()->result();
-		//$result = $query->result_array();
-		//return $result;
-		var_dump($query);
+		
+		//var_dump($query);
 	}
       public function get_paid() {
 		$this->db->where('status','Paid');

@@ -10,12 +10,13 @@ class Customer extends CI_Controller {
 		
 		// load library
 		$this->load->library(array('table','form_validation'));
-		
+		 $this->load->library('excel');
 		// load helper
 		$this->load->helper('url');
 		
 		// load model
 		$this->load->model('Client_model','',TRUE);
+    $this->load->model('User_model','',TRUE);
 	}
 	function getDesignation(){
       $data['officer']=$this->Client_model->fetchDesignationsOff()->result();
@@ -24,10 +25,19 @@ class Customer extends CI_Controller {
    
    // $this->load->view('/home', $data);
 }
+function checkAcess(){
+   $ac= $this->User_model->getLevels()->result();
+   var_dump($ac);
+    
+  }
  function getEmployees(){
         $data['desigs']=$this->Client_model-> fetchAllDesig()->result();
        // var_dump($data['desigs']);
        
+    }
+    function getTotalsalesPerAgent(){
+      $sp=$this->Client_model->salesPerAgent()->result();
+      var_dump($sp);
     }
   function getDesignation1(){
  
@@ -77,8 +87,19 @@ if($date>21){
     }
     function payLoan(){
     $amount=$this->input->post('amount');
+    $name=$this->input->post('name');
+     $agent=$this->input->post('agent');
     $id_num=$this->input->post('identification');
-    $this->Client_model->addPayment($id_num,$amount);
+     // $id_num=2034;
+    $params=$this->Client_model->getLoanParams($id_num);
+     // var_dump($params[0]['pricipal']);
+    foreach ($params as  $value) {
+     $principal=$value['principal'];
+      $total_interest=$value['interest'];
+     // echo $total_interest;
+    }
+     $interest=($amount*$total_interest/$principal);
+    $this->Client_model->addPayment($id_num,$amount,$name,$interest,$agent);
     $sp=$this->Client_model->getLoanAmount($id_num)->result();
     foreach ($sp as $key => $val) {
     $pay=$val->total_loan-$amount;
@@ -109,6 +130,11 @@ if($date>21){
        else{
         echo "wewe ni fala";
        }
+    }
+    function getOfficerSalary(){
+     $salo=$this->Client_model->OfficerSaloo()->result();
+     
+     
     }
     function getPayments($id){
 
@@ -185,4 +211,35 @@ function test(){
   $this->Client_model->registerLoan($data);
 }
 
-}
+    public function createXLS($from,$to) {
+    // create file name
+        $fileName = 'data-'.time().'.xlsx';  
+    // load excel library
+      // $this->load->library('excel');
+        $empInfo = $this->Client_model->officerSaloo($from,$to);
+        $objPHPExcel = new PHPExcel();
+        $objPHPExcel->setActiveSheetIndex(0);
+        // set Header
+        $objPHPExcel->getActiveSheet()->SetCellValue('A1', 'First Name');
+        $objPHPExcel->getActiveSheet()->SetCellValue('B1', 'Last Name');
+        $objPHPExcel->getActiveSheet()->SetCellValue('C1', 'Email');
+        $objPHPExcel->getActiveSheet()->SetCellValue('D1', 'DOB');
+        $objPHPExcel->getActiveSheet()->SetCellValue('E1', 'Contact_No');       
+        // set Row
+        $rowCount = 2;
+        foreach ($empInfo as $element) {
+            $objPHPExcel->getActiveSheet()->SetCellValue('A' . $rowCount, $element['first_name']);
+            $objPHPExcel->getActiveSheet()->SetCellValue('B' . $rowCount, $element['last_name']);
+            $objPHPExcel->getActiveSheet()->SetCellValue('C' . $rowCount, $element['email']);
+            $objPHPExcel->getActiveSheet()->SetCellValue('D' . $rowCount, $element['dob']);
+            $objPHPExcel->getActiveSheet()->SetCellValue('E' . $rowCount, $element['contact_no']);
+            $rowCount++;
+        }
+        $objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel);
+        $objWriter->save(ROOT_UPLOAD_IMPORT_PATH.$fileName);
+    // download file
+        header("Content-Type: application/vnd.ms-excel");
+        redirect(HTTP_UPLOAD_IMPORT_PATH.$fileName);        
+    }
+
+   }

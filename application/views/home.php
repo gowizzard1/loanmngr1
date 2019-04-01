@@ -49,8 +49,9 @@
 <div class="container">
   <!-- <h2>Modal Example</h2> -->
   <!-- Trigger the modal with a button -->
-    <button type="button" onclick="edit()" class="btn btn-info btn-lg" data-toggle="modal" data-target="#addLoan">Loan Aplication </button>
 
+    <button type="button" onclick="edit()" class="btn btn-info btn-lg" data-toggle="modal" data-target="#addLoan">Loan Application </button>
+  
   <!-- Modal -->
   <div class="modal fade" id="addLoan" role="dialog">
     <div class="modal-dialog">
@@ -59,7 +60,9 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" >&times;</button>
-          <h4 class="modal-title">Add Loan</h4>
+          <h4 class="modal-title"><center>Add Loan </center></h4>
+            
+         
         </div>
         <div class="modal-body">
          <!--  <p>Some text in the modal.</p> -->
@@ -94,11 +97,7 @@
                   <?php foreach ($designation as $des){?>
                     <option value="<?php echo $des->name; ?>"><?php echo $des->name; ?></option>
                   <?php } ?> 
-                <!--  <option value=1>CEO</option>
-                <option value=2>Manager</option>
-                <option value=3>Field Officer</option>
-                <option value=4>Agent</option> -->
-                <!-- <option value="js">JavaScript</option> -->
+              
                 </select>
               </div>
             </div> 
@@ -109,11 +108,7 @@
                   <?php foreach ($officer as $desig){?>
                     <option value="<?php echo $desig->name; ?>"><?php echo $desig->name; ?></option>
                   <?php } ?> 
-                <!--  <option value=1>CEO</option>
-                <option value=2>Manager</option>
-                <option value=3>Field Officer</option>
-                <option value=4>Agent</option> -->
-                <!-- <option value="js">JavaScript</option> -->
+              
                 </select>
               </div>
             </div> 
@@ -138,7 +133,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Register New User</h4>
+          <h4 class="modal-title"><center>Register New User</center></h4>
         </div>
         <div class="modal-body">
     
@@ -195,6 +190,23 @@
                 <input type="text" class="form-control" name="identification" placeholder="Please Enter the ID Number" />
               </div>
             </div>
+               <div class="form-group">
+              <label class="col-lg-3 control-label">Name <sup>*</sup></label>
+              <div class="col-lg-9">
+                <input type="text" class="form-control" name="name" placeholder="Please Enter the Amount" />
+              </div>
+            </div>
+                  <div class="form-group">
+              <label class="col-lg-3 control-label">Agent <sup>*</sup></label>
+              <div class="col-lg-9">
+                <select class="form-control mb15 selectpicker" name="agent" id="agent" data-live-search="true" data-style="btn-white">
+                  <?php foreach ($designation as $des){?>
+                    <option value="<?php echo $des->name; ?>"><?php echo $des->name; ?></option>
+                  <?php } ?> 
+              
+                </select>
+              </div>
+            </div> 
               <div class="form-group">
               <label class="col-lg-3 control-label">Amount <sup>*</sup></label>
               <div class="col-lg-9">
@@ -221,7 +233,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Register Employee</h4>
+          <h4 class="modal-title"><center>Register Employee</center></h4>
         </div>
         <div class="modal-body">
          <!--  <p>Some text in the modal.</p> -->
@@ -288,6 +300,7 @@
                                 <th>Agent</th>
                                 <th>Field Officer</th>
                                 <th>Balance</th>
+                                <th> Interest</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -306,6 +319,7 @@
                                                 <td class='text-left'>".$sl->agent."</td>
                                                 <td class='text-left'>".$sl->officer."</td>
                                                 <td class='text-left'>".$amount."</td>
+                                                <td class='text-left'>".$sl->interest."</td>
                                                 <td><a href='".site_url()."/clients/profile/".$sl->identification."'>Details</a></td>
                                             </tr>
                                         ";
@@ -371,7 +385,7 @@
            data: form.serialize(), // serializes the form's elements.
            success: function(data)
            {
-               alert(data); // show response from the php script.
+                alert('Loan Paid successfully'); // show response from the php script.
            }
          });
         window.location.reload();
@@ -390,7 +404,7 @@
            data: form.serialize(), // serializes the form's elements.
            success: function(data)
            {
-               alert('Submit was success'); // show response from the php script.
+               alert('Loan Created was successfully'); // show response from the php script.
            }
          });
        window.location.reload();
@@ -409,7 +423,7 @@
            data: form.serialize(), // serializes the form's elements.
            success: function(data)
            {
-               alert(data); // show response from the php script.
+               alert('Employee Created successfully'); // show response from the php script.
            }
          });
        window.location.reload();
@@ -429,7 +443,7 @@
            data: form.serialize(), // serializes the form's elements.
            success: function(data)
            {
-               alert(data); // show response from the php script.
+               alert('User Created successfully'); // show response from the php script.
            }
          });
        window.location.reload();
@@ -478,3 +492,10 @@
       
    //   });
 </script>
+<style type="text/css">
+  .modal-header {
+  padding: 2px 16px;
+  background-color: #3f939e;
+  color: white;
+}
+</style>
