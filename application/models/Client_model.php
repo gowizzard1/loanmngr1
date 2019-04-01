@@ -194,7 +194,7 @@ class Client_model extends CI_Model {
  }
     function salesPerAgent($from,$to){
       //$this->db->where('date_created >=',$from);
-    	echo $from;
+    	//echo $from;
 		$query =  $this->db->query("SELECT agent, identification, SUM(interest) as value_sum FROM tbl_payments WHERE date_created BETWEEN  '$from' AND '$to' GROUP BY name ");
 		
 		return $query;
